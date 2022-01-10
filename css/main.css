@@ -1,0 +1,53 @@
+.finshpage .center {
+  border: 1px solid red;
+  background-color: royalblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.finshpage .pic-gift {
+  max-width: 475px;
+  max-height: 440px;
+}
+
+.finshpage .pic-watch {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 286px;
+  max-height: 500px;
+}
+
+.finshpage img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.finshpage .arr-set {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.finshpage .arr {
+  max-width: 98px;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.finshpage .arr img {
+  width: 100%;
+}
+/*# sourceMappingURL=main.css.map */

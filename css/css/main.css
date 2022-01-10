@@ -1,0 +1,88 @@
+.finshpage .center {
+  border: 1px solid red;
+  background-color: royalblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.finshpage .pic-gift {
+  max-width: 475px;
+  max-height: 440px;
+}
+.finshpage .pic-watch {
+  box-sizing: border-box;
+  max-width: 286px;
+  max-height: 500px;
+}
+.finshpage img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.finshpage .arr-set {
+  display: flex;
+  align-items: flex-end;
+}
+.finshpage .arr {
+  max-width: 98px;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+}
+.finshpage .arr img {
+  width: 100%;
+}
+
+.formsec .mainform {
+  width: 90%;
+  border: 1px solid red;
+  background-color: royalblue;
+  margin: auto;
+}
+.formsec .mainform .formtitle h2 {
+  text-align: center;
+}
+.formsec .mainform .item {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px 30px;
+  border: springgreen 1px solid;
+}
+.formsec .mainform .item img {
+  width: 50%;
+}
+.formsec .mainform .itemsettxt {
+  text-align: center;
+  padding: 0px 30px;
+  border: springgreen 1px solid;
+}
+.formsec .featurepic {
+  display: flex;
+  max-width: 160px;
+}
+.formsec .featurepic img {
+  width: 100%;
+}
+.formsec .featureitem {
+  padding-top: 10px;
+  margin-bottom: -30px;
+  justify-content: center;
+  align-items: center;
+}
+.formsec .featuretxt {
+  padding: 0px;
+}
+.formsec .textcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.buttonarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px;
+}/*# sourceMappingURL=main.css.map */
