@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./js/vue.js">
+    <script src="./js/vue.js"></script>
     <link rel="stylesheet" href="./css/css/project.css">
 </head>
 <body>
@@ -70,19 +70,110 @@
        <section class="alertbox">
            <div class="container">
                <div class="pic">
-                   <img src="./img/banner11.jpg" alt="">
+                   <img src="./img/item03.jpg" alt="">
                    <div class="player">
-                       <img src="./img/youtube_icon.png" alt="">
+                       <img src="./img/youtube_icon2.png" alt="">
                    </div>
                </div>
+           </div>
+       </section>
+       <section class="card">
+           <div class="container">
+               <div class="row">
+                   <div class="card-item" v-for="(card, index) in cards" :key="card.id">
+                       <div class="card-head">
+                           <div class="title">
+                               <h2>Award winning civil contracrors that government.</h2>
+                           </div>
+                           <div class="line">
+                           </div>
+                           <div class="txt">
+                               <p>The Australian Treasury Building & King Edward TCE Barton Canberra City.</p>
+                           </div>
+                           <div class="arrow">
+                               <span>⇀</span>
+                           </div>
+                       </div>
+                       <div class="card-footer">
+                           <div class="pic">
+                               <img :src="card.imgUrl">
+                           </div>
+                           <div class="card-footer-txt">
+                               <div class="award">
+                                   <h2>Award</h2>
+                               </div>
+                               <div class="title">
+                                   <h2>Woden Public Realm Improvements Works Package Lift & Stairs</h2>
+                               </div>
+                               <div class="txt">
+                                   <small>Urban Public Realm Refurbishment.</small>
+                               </div>
+                               <div class="statusarea">
+                                   <div class="content">
+                                       <h1>CLENT</h1>
+                                       <p>ACT Government</p>
+                                    </div>
+                                   <div class="content">
+                                       <h1>STATUS</h1>
+                                       <p>Completed2017</p>
+                                   </div>
+                           </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+       <section class="footer">
+           <div class="container">
+                <div class="logo">
+                    <span></span>
+                    <p>B</p>
+                </div>
+                <div class="navbar">
+                    <nav>
+                        <a href="">About</a>
+                        <a href="">Website</a>
+                        <a href="">Branging</a>
+                    </nav>
+                <div class="socal">
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+                </div>
            </div>
        </section>
     </div>
      <script>
          new Vue({
              el: '#app',  
-             data: {  // 變數放這裡
-                
+             data: {
+                 cards:[
+                     {
+                         id:1,
+                         imgUrl:'./img/item04.jpg',
+                     },
+                     {
+                         id:2,
+                         imgUrl:'./img/item11.jpg',
+                     },
+                     {
+                         id:3,
+                         imgUrl:'./img/item09.jpg',
+                     },
+                     {
+                         id:4,
+                         imgUrl:'./img/item04.jpg',
+                     },
+                     {
+                         id:5,
+                         imgUrl:'./img/item11.jpg',
+                     },
+                     {
+                         id:6,
+                         imgUrl:'./img/item09.jpg',
+                     },
+                 ],
              },
              methods: {  // 大部分的函數(方法)放這裡
               
