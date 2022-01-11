@@ -11,7 +11,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   
 
     <div id="app">
        <div class="main-header">
@@ -94,7 +94,7 @@
            <div class="cover" v-if="videoShow">
                <div class="close" @click="boxClose">X</div>
                <div class="box">
-                <iframe src="https://www.youtube.com/embed/qVlSdYs4zAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="869" height="489" src="https://www.youtube.com/embed/qVlSdYs4zAU?&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                </div>
            </div>
            <div class="container">
@@ -251,9 +251,12 @@
              computed: {
              },
              mounted() {
-                AOS.init();
              },
          });
+     </script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+          AOS.init();
      </script>
  </body>
 </html>
