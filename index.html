@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="./css/reset.css">
     <script src="./js/vue.js"></script>
     <link rel="stylesheet" href="./css/css/project.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <div id="app">
        <div class="main-header">
            <div class="header">
@@ -30,6 +33,15 @@
                     </div>
                </div>
            </div>
+           <div class="dotgroup">
+            <span class="dot"
+            v-for="(dot, index) in dots" :key="index"
+            @click="currentslides(index+1)"></span> 
+            <!-- <span class="dot"
+            @click="currentslides(2)"></span> 
+            <span class="dot"
+            @click="currentslides(3)"></span>  -->
+          </div>
            <div class="copyright">
                <span>
                 David&copy;Copyright 2022 
@@ -51,7 +63,18 @@
            <div class="slogan">
                <h2>Home</h2>
            </div>
-           <img src="./img/banner07.jpg" alt="">
+           <div v-if="slidesindex==1" class="mySlides fade">
+            <img src="./img/banner03.jpg">
+          </div>
+        
+          <div v-if="slidesindex==2" class="mySlides fade">
+            <img src="./img/banner07.jpg">
+          </div>
+        
+          <div v-if="slidesindex==3" class="mySlides fade">
+            <img src="./img/banner08.jpg">
+          </div>
+          
        </section>
        <section class="product">
            <div class="container">
@@ -68,10 +91,16 @@
            </div>
        </section>
        <section class="alertbox">
+           <div class="cover" v-if="videoShow">
+               <div class="close" @click="boxClose">X</div>
+               <div class="box">
+                <iframe src="https://www.youtube.com/embed/qVlSdYs4zAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               </div>
+           </div>
            <div class="container">
                <div class="pic">
                    <img src="./img/item03.jpg" alt="">
-                   <div class="player">
+                   <div class="player" @click="boxOpen">
                        <img src="./img/youtube_icon2.png" alt="">
                    </div>
                </div>
@@ -80,7 +109,8 @@
        <section class="card">
            <div class="container">
                <div class="row">
-                   <div class="card-item" v-for="(card, index) in cards" :key="card.id">
+                   <div class="card-item"
+                    v-for="(card, index) in cards" :key="card.id">
                        <div class="card-head">
                            <div class="title">
                                <h2>Award winning civil contracrors that government.</h2>
@@ -136,18 +166,44 @@
                         <a href="">Website</a>
                         <a href="">Branging</a>
                     </nav>
+                    <nav>
+                        <span>T.02-8888-9999</span>
+                        <span>E.david19921005@gmail.com</span>
+                        <span>1F.,NO.1,LN.66,Sec.66,Chengde Rd</span>
+                    </nav>
+                </div>
                 <div class="socal">
-                    <div class="pic">
-                        <img src="" alt="">
+                    <div class="row">
+                        <div class="pic">
+                            <img src="./img/wfb.png" alt="">
+                        </div>
+                        <div class="pic">
+                            <img src="./img/wig.png" alt="">
+                        </div>
+                        <div class="pic">
+                            <img src="./img/wyu.png" alt="">
+                        </div>
                     </div>
                 </div>
-           </div>
-       </section>
+        </section>
     </div>
      <script>
          new Vue({
              el: '#app',  
              data: {
+                videoShow:false,
+                slidesindex:1,
+                dots:[
+                    {
+                        No:1,
+                    },
+                    {
+                        No:2,
+                    },
+                    {
+                        No:3,
+                    },
+                ],
                  cards:[
                      {
                          id:1,
@@ -175,15 +231,27 @@
                      },
                  ],
              },
-             methods: {  // 大部分的函數(方法)放這裡
-              
+             methods: { 
+                currentslides(index){
+                    this.slidesindex = index;
+                    let dotsitem = document.getElementsByClassName("dot");
+                   for(let i =0 ; i<this.dots.length; i++){
+                    dotsitem[i].className = dotsitem[i].className.replace("active", "");
+                   }
+                   dotsitem[index-1].className += " active";
+
+                },
+                boxClose(){
+                    this.videoShow=false;
+                },
+                boxOpen(){
+                    this.videoShow=true;
+                }
              },
-             computed: { // 函數(方法)也可以放這裡，但是放在這裡的函數，不能傳參數，一定要有傳回值
-                 
-              
+             computed: {
              },
              mounted() {
-
+                AOS.init();
              },
          });
      </script>
