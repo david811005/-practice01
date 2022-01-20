@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+</head>
+<body>
+    <div id="app"> 
+        <div id="taDiv">
+            <h1>題目3、封裝一個父子組件通信的例子, 使用多種方式進行通信</h1>
+            <child-btn @my-click="clicked"></child-btn>
+            <proparea :propcount="count"></proparea>
+            <h2> {{count}}從child-btn來的</h2>
+        </div>
+
+        <button type="button" @click="screenshot">截圖按鈕</button>
+        <div class="picbox">
+            <h1>題目六截圖顯示區</h1>
+            <img :src="Taurl" alt="">
+        </div>
+
+        
+    </div>
+
+    <script>
+        Vue.component('proparea',{
+            props: ['propcount'],
+            template: `
+                <div>
+                    <h2 style="color:red;">{{propcount}} 來自vue的</h2>
+                </div>
+            `,
+            data(){
+                return{
+                   
+                };
+            },
+        });
+
+
+        Vue.component('child-btn',{
+            data(){
+                return{
+                    count:100
+                }
+            },
+            methods: {
+                myClick(){
+                    this.$emit('my-click', this.count);
+                },
+            },
+            template: `<button @click="myClick">點擊傳遞emit</button>`,
+        });
+
+
+
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                Taurl:'',
+            },
+            methods: {
+                screenshot(){
+                    const Ta = document.querySelector("#taDiv");
+                    domtoimage.toPng(Ta).then((dataUrl) => {
+                        this.Taurl = dataUrl;
+                    });
+                   
+	          	    
+                },
+                clicked(c){
+                    alert(`這是child-btn傳來的${c}`);
+                    this.count=c;
+                },
+            },
+        });
+    </script>
+    
+</body>
+</html>
