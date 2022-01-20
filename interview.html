@@ -23,6 +23,7 @@
             <img :src="Taurl" alt="">
         </div>
 
+        <h2>題目一在</h2>
         
     </div>
 
@@ -63,6 +64,8 @@
             data: {
                 count: 0,
                 Taurl:'',
+                mytoken:'',
+                api:'',
             },
             methods: {
                 screenshot(){
@@ -76,6 +79,17 @@
                 clicked(c){
                     alert(`這是child-btn傳來的${c}`);
                     this.count=c;
+                },
+                checkLogin(){
+                    this.mytoken = document.cookie.replace(/(?:(?:^|.*;\s*)testToken\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                    axios.defaults.headers.common['Authorization'] = this.mytoken;
+                    axios.post(`${this.api}/api/user/check`).then((res)=>{
+                        this.getData();
+                    })
+                    .catch((err)=>{
+                        alert('沒登入轉頁面')
+                        window.location="？？？.html"
+                    })
                 },
             },
         });
