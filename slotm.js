@@ -64,7 +64,7 @@ const app = createApp({
             slotbounce:false, 
         },
         curNum:0,
-        newNum:[],
+        newNum:[7,7,7],
     }
   },
   methods: {
@@ -87,11 +87,11 @@ const app = createApp({
         setTimeout(() => {
             this.slotgo2.slotmove2=false;
             this.slotgo2.slotbounce2=true;
-         },1700);
+         },2000);
         setTimeout(() => {
             this.slotgo3.slotmove3=false;
             this.slotgo3.slotbounce3=true;
-         },1900);
+         },2500);
 
       },
   },
