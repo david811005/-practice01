@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.container{
+    max-width: 1200px;
+    margin: auto;
+}
+.slotm{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    background-color: blanchedalmond;
+    height: 500px;
+}
+.slotbox{
+    width: 33.333333%;
+    box-sizing: border-box;
+    height: 30%;
+    border: 1px rgb(22, 22, 22) 
+    solid;
+    border-radius: 5px;
+    overflow: hidden;
+}
+ul{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+.slotmove1{
+    animation: move .3s linear infinite;
+}
+.slotmove2{
+    animation: move .3s .2s linear infinite;
+}
+.slotmove3{
+    animation: move .3s .4s linear infinite;
+}
+.slotbounce1{
+    animation: bounce-in-top 1.1s both;
+}
+.slotbounce2{
+    animation: bounce-in-top 1.1s both;
+}
+.slotbounce3{
+    animation: bounce-in-top 1.1s both;
+}
+
+.slotm li{
+    line-height: 8rem;
+    font-size: 4rem;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; */
+}
+button {
+    display: block;
+    margin: auto;
+    font-size: 30px;
+}
+
+@keyframes move {
+    from {
+      transform: translateY(-1000%);
+      filter: url(#blur)
+    }
+    to {
+      transform: translateY(1%);
+      filter: url(#blur)
+    }
+  }
+
+  
+  @keyframes bounce-in-top {
+        25% { transform: translateY(8%) }
+        50% { transform: translateY(-4%) }
+        70% { transform: translateY(2%) }
+        85% { transform: translateY(-1%) }
+        to { transform: translateY(0) }
+  }
+  
