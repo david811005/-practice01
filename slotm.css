@@ -16,6 +16,7 @@
     height: 500px;
 }
 .slotbox{
+    margin: 0px 20px;
     width: 33.333333%;
     box-sizing: border-box;
     height: 30%;
